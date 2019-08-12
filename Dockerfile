@@ -1,5 +1,7 @@
 FROM jenkins/jenkins
 
+ARG chromedriver_version="75.0.3770.90"
+
 USER root
 
 RUN apt-get update && \
@@ -10,7 +12,7 @@ RUN curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-ke
         apt-get -y update && \
         apt-get -y install google-chrome-stable
 
-RUN wget https://chromedriver.storage.googleapis.com/2.46/chromedriver_linux64.zip && \
+RUN wget https://chromedriver.storage.googleapis.com/${chromedriver_version}/chromedriver_linux64.zip && \
         unzip chromedriver_linux64.zip && \
         mv chromedriver /usr/bin/chromedriver && \
         chown root:root /usr/bin/chromedriver && \
