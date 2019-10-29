@@ -1,6 +1,6 @@
 FROM jenkins/jenkins
 
-ARG chromedriver_version="75.0.3770.90"
+ARG chromedriver_version="78.0.3904.7"
 
 USER root
 
