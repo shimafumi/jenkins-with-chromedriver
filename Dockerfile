@@ -17,8 +17,8 @@ RUN CHROMEDRIVER_VERSION=`curl -sS chromedriver.storage.googleapis.com/LATEST_RE
         chown root:root /usr/bin/chromedriver && \
         chmod +x /usr/bin/chromedriver
 
-RUN wget https://ipafont.ipa.go.jp/IPAexfont/IPAexfont00401.zip
-RUN unzip IPAexfont00401.zip -d /usr/share/fonts/
-RUN fc-cache -fv
+RUN apt-get update && \
+        apt-get install -y fonts-ipafont && \
+        fc-cache -fv
 
 USER jenkins
